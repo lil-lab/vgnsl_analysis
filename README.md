@@ -12,5 +12,5 @@ Code coming soon!
 
 
 ### Ackowledegement
-We sould like to thank [Freda](https://ttic.uchicago.edu/~freda/) for making their code public and responding eagerly and frequently to our inquiry on [Visually Grounded Neural Syntax Acquisition](https://ttic.uchicago.edu/~freda/project/vgnsl/) (Shi et al., ACL2019).
+We would like to thank [Freda](https://ttic.uchicago.edu/~freda/) for making their code public and responding eagerly and frequently to our inquiry on [Visually Grounded Neural Syntax Acquisition](https://ttic.uchicago.edu/~freda/project/vgnsl/) (Shi et al., ACL2019).
 
