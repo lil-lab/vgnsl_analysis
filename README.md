@@ -19,7 +19,7 @@ Visual features are a promising signal for learning bootstrap textual models.  H
 4. Train your own models
 
 ### Requirement: software
-1. Python Virtual Env Setup: All code is implemented in Python. We recommend using virtual environment for installing these python packages.
+Python Virtual Env Setup: All code is implemented in Python. We recommend using virtual environment for installing these python packages.
 ```
 VERT_ENV=vgnsl_analysis
 
@@ -39,10 +39,10 @@ pip install -r requirements.txt
 ```
 
 ### Requirement: data
-1. Follow the instruction in https://github.com/ExplorerFreda/VGNSL (`Data Preparation` section) to download all the `/mscoco` data under `/data/mscoco` directory.
+Follow the instruction in https://github.com/ExplorerFreda/VGNSL (`Data Preparation` section) to download all the `/mscoco` data under `/data/mscoco` directory.
 
 ### Test pre-trained models
-1. Please refer `/outputs/README.md` to download pre-trained models
+Please refer `/outputs/README.md` to download pre-trained models
 <!---1. Download pre-trained models. See outputs/README.md.--->
 <!---2. Test models running `./shell/demo_test.sh CHECKPOINTS_FOLDER_NAME`. --->
 ```
@@ -55,7 +55,7 @@ python test.py --candidate path_to_checkpoint --splits test --record_trees
 ```
 
 #### Evaluation on catefory-wise recalls
-1. Please download category annotation from [the link](https://drive.google.com/drive/folders/1OP1lqYXGcV5_CtADOgtHnyQS43lMgO25?usp=sharing) and put them under `/data/mscoco`.
+Please download category annotation from [the link](https://drive.google.com/drive/folders/1OP1lqYXGcV5_CtADOgtHnyQS43lMgO25?usp=sharing) and put them under `/data/mscoco`.
 
 ```
 # calculate F1 score and catefory-wise recalls
