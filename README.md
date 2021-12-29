@@ -64,13 +64,25 @@ python test.py --candidate path_to_checkpoint --splits test --ctg_eval
 
 ### Train your own models
 <!---1. Train models running `./scripts/demo_train.sh `--->
-Coming soon!
+```
+#  train 1D embeddings with WS score function and Mean combine function
+python train.py --log_step 20 --bottleneck_dim 1 --logger_name ../outputs/1-ws-mean --score_fn ws --combine_fn mean
+
+#  train 2D embeddings with WS score function and Mean combine function (+HI)
+python train.py --log_step 20 --bottleneck_dim 2 --logger_name ../outputs/2-ws-mean --score_fn ws --combine_fn mean --lambda_hi 20
+
+#  train 2D embeddings with WS score function and Mean combine function (+HI+FastText)
+python train.py --log_step 20 --bottleneck_dim 2 --logger_name ../outputs/hi-fasttext-2-ws-mean --score_fn ws --combine_fn mean --lambda_hi 20 --init_embeddings_key fasttext --init_embeddings_type partial-fixed
+
+#  train 1D embeddings with Mean Hi score function and Max combine function (+HI+FastText-IN)
+python train.py --log_step 20 --bottleneck_dim 1 --logger_name ../outputs/hi-fasttext-noimgnorm-1-meanhi-max --score_fn mean_hi --combine_fn max --lambda_hi 20 --init_embeddings_key fasttext --no_imgnorm
+```
 
 ### License
 MIT
 
 ## Citing
-If you find this code base and models useful in your research, please consider citing the following paper:
+If you find this codebase and models useful in your research, please consider citing the following paper:
 ```
 @InProceedings{Kojima2020:vgnsl,
     title = "What is Learned in Visually Grounded Neural Syntax Acquisition",
@@ -83,4 +95,4 @@ If you find this code base and models useful in your research, please consider c
 ```
 
 ## Ackowledegement
-We would like to thank [Freda](https://ttic.uchicago.edu/~freda/) for making their code public and responding promptly to our inquiry on [Visually Grounded Neural Syntax Acquisition](https://ttic.uchicago.edu/~freda/project/vgnsl/) (Shi et al., ACL2019).
+We would like to thank [Freda](https://ttic.uchicago.edu/~freda/) for making their code (the code in this repo is largely borrowed from the original VGNSL implementation) public and responding promptly to our inquiry on [Visually Grounded Neural Syntax Acquisition](https://ttic.uchicago.edu/~freda/project/vgnsl/) (Shi et al., ACL2019). 

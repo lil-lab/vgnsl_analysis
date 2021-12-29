@@ -85,7 +85,7 @@ def get_precomp_loader(data_path, data_split, vocab, batch_size=128,
     return data_loader
 
 
-def get_debug_loaders(data_path, vocab, batch_size, workers, is_shuffle=True, data_mode="global", image_noise=''):
+def get_debug_loaders(data_path, vocab, batch_size, workers, is_shuffle=True, image_noise=''):
     train_loader = get_precomp_loader(
         data_path, 'debug', vocab, batch_size, False, workers, image_noise=image_noise
     )
@@ -95,7 +95,7 @@ def get_debug_loaders(data_path, vocab, batch_size, workers, is_shuffle=True, da
     return train_loader, val_loader
 
 
-def get_train_loaders(data_path, vocab, batch_size, workers, is_shuffle=True, data_mode="global", image_noise=''):
+def get_train_loaders(data_path, vocab, batch_size, workers, is_shuffle=True, image_noise=''):
     train_loader = get_precomp_loader(
         data_path, 'train', vocab, batch_size, bool(is_shuffle), workers, image_noise=image_noise
     )  # TODO: fix
@@ -105,15 +105,13 @@ def get_train_loaders(data_path, vocab, batch_size, workers, is_shuffle=True, da
     return train_loader, val_loader
 
 
-def get_val_test_loaders(data_path, vocab, batch_size, workers, is_shuffle=True, data_mode="global", image_noise=''):
+def get_val_test_loaders(data_path, vocab, batch_size, workers, is_shuffle=True, image_noise=''):
     val_loader = get_precomp_loader(
         data_path, 'dev', vocab, batch_size, False, workers, image_noise=image_noise
     )
-    """
     test_loader = get_precomp_loader(
         data_path, 'test', vocab, batch_size, False, workers, image_noise=image_noise
     )
-    """
     return val_loader, None
 
 

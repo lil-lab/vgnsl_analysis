@@ -425,7 +425,6 @@ class VGNSL(object):
 
         # bounding boxes
         print("Model initialization .....")
-        self.feature_op = opt.feature_op
         self.loss_type = opt.loss_type
 
         # loss, reward and optimizer
@@ -529,16 +528,16 @@ class VGNSL(object):
                 img_emb = torch.cat(curr_imgs, dim=0)
             else:
                 img_emb = base_img_emb
-            reward = self.reward_criterion(img_emb, cap_emb, splits)
-            left_reg = self.loss_criterion(img_emb, left_cap_emb, splits)
-            right_reg = self.loss_criterion(img_emb, right_cap_emb, splits)
+            reward = self.reward_criterion(img_emb, cap_emb)
+            left_reg = self.loss_criterion(img_emb, left_cap_emb)
+            right_reg = self.loss_criterion(img_emb, right_cap_emb)
 
             for idx, j in enumerate(indices):
                 reward_matrix[j][lengths[j] - 2 - i] = reward[idx]
                 left_reg_matrix[j][lengths[j] - 2 - i] = left_reg[idx]
                 right_reg_matrix[j][lengths[j] - 2 - i] = right_reg[idx]
 
-            this_matching_loss = self.loss_criterion(img_emb, cap_emb, splits)
+            this_matching_loss = self.loss_criterion(img_emb, cap_emb)
             matching_loss += this_matching_loss.sum() + left_reg.sum() + right_reg.sum() 
 
         self.reward_matrix_raw = reward_matrix.clone()
@@ -561,20 +560,12 @@ class VGNSL(object):
 
         # 1. compute the embeddings
         # 2. measure accuracy and record loss
-        if self.feature_op == "imagenet":
-            img_emb, cap_span_features, left_span_features, right_span_features, word_embs, tree_indices, probs, \
-                span_bounds = self.forward_emb(images, captions, lengths)
-            cum_reward, matching_loss = self.forward_reward(
-                img_emb, cap_span_features, left_span_features, right_span_features, word_embs, lengths,
-                span_bounds, None
-            )
-        else:
-            img_emb, cap_span_features, left_span_features, right_span_features, word_embs, tree_indices, probs, \
-                span_bounds, splits = self.forward_emb(images, captions, lengths)
-            cum_reward, matching_loss = self.forward_reward(
-                img_emb, cap_span_features, left_span_features, right_span_features, word_embs, lengths,
-                span_bounds, splits
-            )
+        img_emb, cap_span_features, left_span_features, right_span_features, word_embs, tree_indices, probs, \
+            span_bounds = self.forward_emb(images, captions, lengths)
+        cum_reward, matching_loss = self.forward_reward(
+            img_emb, cap_span_features, left_span_features, right_span_features, word_embs, lengths,
+            span_bounds, None
+        )
 
         probs = torch.cat(probs, dim=0).reshape(-1, lengths.size(0)).transpose(0, 1)
         masks = sequence_mask(lengths - 1, lengths.max(0)[0] - 1).float()
