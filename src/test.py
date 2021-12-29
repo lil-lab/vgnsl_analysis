@@ -134,7 +134,7 @@ def f1_score(produced_trees, orig_gold_trees, splits=None, ctg_eval=False, gap_s
     # TODO: change path
     if ctg_eval:
         fail_ct = 0
-        in_name = "/home/noriyuki/Desktop/VGNSL/data/mscoco/{}_labels.npy".format(
+        in_name = "../data/mscoco/{}_labels.npy".format(
             splits)
         categs = pickle.load(open(in_name, "rb"))
         np_recall_cnt, vp_recall_cnt, pp_recall_cnt, adjp_recall_cnt = 0, 0, 0, 0
@@ -277,7 +277,7 @@ if __name__ == '__main__':
     if args.record_trees:
         from datetime import date
         today = date.today()
-        folder_name = "./outputs/trees/" + str(today)
+        folder_name = "../outputs/trees/" + str(today)
         os.makedirs(folder_name, exist_ok=True)
         file_name = "-".join(args.candidate.split("/")
                              [-2:]).replace("/", "-") + ".txt"
@@ -289,6 +289,6 @@ if __name__ == '__main__':
         outfile.close()
 
     f1, _, _ = f1_score(trees, ground_truth, args.splits,
-                        ctg_eval=False, gap_stats=False)
+                        ctg_eval=args.ctg_eval, gap_stats=False)
     print('Model:', args.candidate)
     print('F1 score:', f1)

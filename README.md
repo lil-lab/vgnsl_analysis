@@ -42,9 +42,25 @@ pip install -r requirements.txt
 1. Follow the instruction in https://github.com/ExplorerFreda/VGNSL (`Data Preparation` section) to download all the `/mscoco` data under `/data/mscoco` directory.
 
 ### Test pre-trained models
+1. Please refer `/outputs/README.md` to download pre-trained models
 <!---1. Download pre-trained models. See outputs/README.md.--->
 <!---2. Test models running `./shell/demo_test.sh CHECKPOINTS_FOLDER_NAME`. --->
-Coming soon!
+```
+cd src
+# calculate F1 score
+python test.py --candidate path_to_checkpoint --splits test
+
+# calculate F1 score and output prediction to a text file
+python test.py --candidate path_to_checkpoint --splits test --record_trees
+```
+
+#### Evaluation on catefory-wise recalls
+1. Please download category annotation from [the link](https://drive.google.com/drive/folders/1OP1lqYXGcV5_CtADOgtHnyQS43lMgO25?usp=sharing) and put them under `/data/mscoco`.
+
+```
+# calculate F1 score and catefory-wise recalls
+python test.py --candidate path_to_checkpoint --splits test --ctg_eval
+```
 
 ### Train your own models
 <!---1. Train models running `./scripts/demo_train.sh `--->
