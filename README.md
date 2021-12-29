@@ -3,7 +3,7 @@
 This is the code repository for the paper: "What is Learned in Visually Grounded Neural Syntax Acquisition", [Noriyuki Kojima](https://kojimano.github.io/), [Hadar Averbuch-Elor](http://www.cs.cornell.edu/~hadarelor/), [Alexander Rush](http://nlp.seas.harvard.edu/rush.html) and [Yoav Artzi](https://yoavartzi.com/) (ACL 2020, Short Paper).
 
 ### About
-[paper](https://arxiv.org/abs/2005.01678)| [presentation](https://www.dropbox.com/s/dx1ecbvdsyvd0cl/Presentation.mov?dl=0)
+[paper](https://arxiv.org/abs/2005.01678)| [talk](https://www.dropbox.com/s/dx1ecbvdsyvd0cl/Presentation.mov?dl=0)
 
 Visual features are a promising signal for learning bootstrap textual models.  However, blackbox  learning  models  make  it  difficult  to  isolate the specific contribution of visual components.   In this analysis,  we consider the case study of the Visually Grounded Neural Syntax Learner [(Shi et al., 2019)](https://ttic.uchicago.edu/~freda/paper/shi2019visually.pdf),  a recent approach for learning syntax from a visual training signal. By constructing simplified versions of the model,  we  isolate  the  core  factors  that  yield the model’s strong performance.  Contrary to what the model might be capable of learning, we find significantly less expressive versions produce similar predictions and perform just as well, or even better. We also find that a simple lexical signal of noun concreteness plays the main role in the model’s predictions as opposed to more complex syntactic reasoning.
 
