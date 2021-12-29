@@ -15,7 +15,7 @@ Visual features are a promising signal for learning bootstrap textual models.  H
 ### Contents
 1. Requirement: software
 2. Requirement: data
-3. Test pre-trained models
+3. Test trained models
 4. Train your own models
 
 ### Requirement: software
@@ -41,8 +41,8 @@ pip install -r requirements.txt
 ### Requirement: data
 Follow the instruction in https://github.com/ExplorerFreda/VGNSL (`Data Preparation` section) to download all the `/mscoco` data under `/data/mscoco` directory.
 
-### Test pre-trained models
-Please refer `/outputs/README.md` to download pre-trained models
+### Test trained models
+Please refer `/outputs/README.md` to download trained models
 <!---1. Download pre-trained models. See outputs/README.md.--->
 <!---2. Test models running `./shell/demo_test.sh CHECKPOINTS_FOLDER_NAME`. --->
 ```
