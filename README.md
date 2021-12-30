@@ -55,7 +55,7 @@ python test.py --candidate path_to_checkpoint --splits test --record_trees
 ```
 
 #### Evaluation on catefory-wise recalls
-Please download category annotation from [the link](https://drive.google.com/drive/folders/1OP1lqYXGcV5_CtADOgtHnyQS43lMgO25?usp=sharing) and put them under `/data/mscoco`.
+Please download category annotation from [the link](https://drive.google.com/drive/folders/1OP1lqYXGcV5_CtADOgtHnyQS43lMgO25?usp=sharing) and put them under `data/mscoco`.
 
 ```
 # calculate F1 score and catefory-wise recalls
