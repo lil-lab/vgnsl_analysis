@@ -39,10 +39,10 @@ pip install -r requirements.txt
 ```
 
 ### Requirement: data
-Follow the instruction in https://github.com/ExplorerFreda/VGNSL (`Data Preparation` section) to download all the `/mscoco` data under `/data/mscoco` directory.
+Follow the instruction in https://github.com/ExplorerFreda/VGNSL (`Data Preparation` section) to download all the `mscoco` data under `data/mscoco` directory.
 
 ### Test trained models
-Please refer `/outputs/README.md` to download trained models
+Please refer `outputs/README.md` to download trained models
 <!---1. Download pre-trained models. See outputs/README.md.--->
 <!---2. Test models running `./shell/demo_test.sh CHECKPOINTS_FOLDER_NAME`. --->
 ```
